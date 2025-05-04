@@ -2,10 +2,10 @@
      <!-- size of map, change the size in x, y, z according to your application -->
      <arg name="map_size_x" value="40.0"/>
      <arg name="map_size_y" value="20.0"/>
-     <arg name="map_size_z" value=" 5.0"/>
+     <arg name="map_size_z" value=" 1.2"/>
 
-     <arg name="init_x_" value="0.0"/>
-     <arg name="init_y_" value="0.0"/>
+     <arg name="init_x_" value="-1.0"/>
+     <arg name="init_y_" value="-1.0"/>
      <arg name="init_z_" value="1.0"/>
 
 
@@ -17,10 +17,12 @@
     <param name = "add_boundary" type = "bool" value="false" />
     <param name = "is_bridge" type = "bool" value="false" />
     <param name = "downsample_res" type = "double" value="0.1" />
-    <node pkg="map_generator" name="map_pub" type="map_pub" output="screen"
+
+
+    <!-- <node pkg="map_generator" name="map_pub" type="map_pub" output="screen"
           args="$(find map_generator)/resource/rc_forest.pcd">
 
-    </node>
+    </node> -->
 
 
 <!--      <node pkg="map_generator" type="color_map_for_pointcloud" name="color_map_for_pointcloud" output="screen"> -->
@@ -32,6 +34,28 @@
 <!--           <param name="color/publish_rate" value="1.0" type="double"></param> -->
 <!--           <param name="color/inverse_color" value="false" type="bool"></param> -->
 <!--      </node> -->
+
+
+<node pkg="map_generator" type="random_forest" name="random_forest" output="screen">
+    <param name="init_state_x" value="$(arg init_x_)"/>
+    <param name="init_state_y" value="$(arg init_y_)"/>
+    
+    <param name="map/x_size" value="$(arg map_size_x)"/>
+    <param name="map/y_size" value="$(arg map_size_y)"/>
+    <param name="map/z_size" value="$(arg map_size_z)"/>
+    <param name="map/resolution" value="0.1"/>
+    <param name="map/obs_num" value="30"/>
+    <param name="map/circle_num" value="30"/>
+    
+    <param name="ObstacleShape/lower_rad" value="0.3"/>
+    <param name="ObstacleShape/upper_rad" value="0.8"/>
+    <param name="ObstacleShape/lower_hei" value="3.0"/>
+    <param name="ObstacleShape/upper_hei" value="5.0"/>
+    
+    <param name="sensing/radius" value="7.5"/>
+    
+    <remap from="~odometry" to="$(arg odom_topic)"/>
+</node>
 
 
 <!--     <node pkg="odom_visualization" name="odom_visualization" type="odom_visualization" output="screen">-->
@@ -94,7 +118,7 @@
 
           <!-- collision parameter -->
           <param name="collisioncheck_enable" value="0"/>
-          <param name="collision_range" value="0.3"/>
+          <param name="collision_range" value="0.2"/>
 
           <param name="output_pcd" value="0"/>
 

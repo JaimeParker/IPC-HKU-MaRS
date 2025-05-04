@@ -46,23 +46,23 @@ mpc:
   D_y:         0.0
   D_z:         0.0
 
-  vx_min:     -10.0
-  vy_min:     -10.0
-  vz_min:     -10.0
-  vx_max:      10.0
-  vy_max:      10.0
-  vz_max:      10.0
+  vx_min:     -3.0
+  vy_min:     -3.0
+  vz_min:     -1.0
+  vx_max:      3.0
+  vy_max:      3.0
+  vz_max:      1.0
 
-  ax_min:     -20.0
-  ay_min:     -20.0
-  az_min:     -10.0
-  ax_max:      20.0
-  ay_max:      20.0
-  az_max:      20.0
+  ax_min:     -6.0
+  ay_min:     -6.0
+  az_min:     -1.0
+  ax_max:      6.0
+  ay_max:      6.0
+  az_max:      1.0
 
-  ux_min:     -50.0
-  uy_min:     -50.0
-  uz_min:     -50.0
-  ux_max:      50.0
-  uy_max:      50.0
-  uz_max:      50.0
+  ux_min:     -20.0
+  uy_min:     -20.0
+  uz_min:     -20.0
+  ux_max:      20.0
+  uy_max:      20.0
+  uz_max:      20.0
